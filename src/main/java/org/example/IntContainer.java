@@ -21,4 +21,30 @@ public class IntContainer {
         }
     }
 
+    /**
+     * Добавляет элемент в конец контейнера.
+     * @param value целое число для добавления
+     */
+    public void add(int value) {
+        Node newNode = new Node(value);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+        size++;
+    }
+
+    /**
+     * Возвращает количество элементов в контейнере.
+     * @return размер контейнера
+     */
+    public int size() {
+        return size;
+    }
+
 }
