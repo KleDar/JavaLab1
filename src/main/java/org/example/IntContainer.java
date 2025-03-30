@@ -46,9 +46,7 @@ public class IntContainer {
      * @throws IndexOutOfBoundsException если индекс выходит за границы контейнера
      */
     public int get(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
+        checkIndex(index);
         Node current = head;
         for (int i = 0; i < index; i++) {
             current = current.next;
@@ -63,9 +61,7 @@ public class IntContainer {
      * @throws IndexOutOfBoundsException если индекс выходит за границы контейнера
      */
     public int remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
+        checkIndex(index);
         int removedValue;
         if (index == 0) {
             removedValue = head.data;
@@ -89,5 +85,29 @@ public class IntContainer {
     public int size() {
         return size;
     }
+    /**
+     * Проверяет, пуст ли контейнер.
+     * @return true, если контейнер пуст, иначе false
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
+    /**
+     * Очищает контейнер, удаляя все элементы.
+     */
+    public void clear() {
+        head = null;
+        size = 0;
+    }
+    /**
+     * Проверяет, что индекс находится в допустимых пределах.
+     * @param index проверяемый индекс
+     * @throws IndexOutOfBoundsException если индекс выходит за границы
+     */
+    private void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+    }
 }

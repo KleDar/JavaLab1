@@ -35,5 +35,10 @@ public class Main {
         for (int i = 0; i < container.size(); i++) {
             System.out.println("Element at index " + i + ": " + container.get(i));
         }
+
+        // Проверяем пустой контейнер
+        System.out.println("\nClearing container:");
+        container.clear();
+        System.out.println("Container is empty: " + container.isEmpty());
     }
 }
