@@ -25,7 +25,15 @@ public class Main {
             System.out.println("Element at index " + i + ": " + container.get(i));
         }
 
-        System.out.println("Element at index " + 13 + ": " + container.get(13));
+        // Удаляем элемент и выводим результат
+        System.out.println("\nRemoving element at index 2:");
+        int removed = container.remove(2);
+        System.out.println("Removed: " + removed);
 
+        // Выводим оставшиеся элементы
+        System.out.println("\nContainer elements after removal:");
+        for (int i = 0; i < container.size(); i++) {
+            System.out.println("Element at index " + i + ": " + container.get(i));
+        }
     }
 }

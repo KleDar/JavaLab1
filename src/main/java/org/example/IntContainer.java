@@ -57,6 +57,32 @@ public class IntContainer {
     }
 
     /**
+     * Удаляет элемент по индексу.
+     * @param index индекс элемента для удаления
+     * @return значение удаленного элемента
+     * @throws IndexOutOfBoundsException если индекс выходит за границы контейнера
+     */
+    public int remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        int removedValue;
+        if (index == 0) {
+            removedValue = head.data;
+            head = head.next;
+        } else {
+            Node previous = head;
+            for (int i = 0; i < index - 1; i++) {
+                previous = previous.next;
+            }
+            removedValue = previous.next.data;
+            previous.next = previous.next.next;
+        }
+        size--;
+        return removedValue;
+    }
+
+    /**
      * Возвращает количество элементов в контейнере.
      * @return размер контейнера
      */
