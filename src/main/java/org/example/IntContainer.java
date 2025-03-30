@@ -40,6 +40,23 @@ public class IntContainer {
     }
 
     /**
+     * Получает элемент по индексу.
+     * @param index индекс элемента
+     * @return значение элемента
+     * @throws IndexOutOfBoundsException если индекс выходит за границы контейнера
+     */
+    public int get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
+
+    /**
      * Возвращает количество элементов в контейнере.
      * @return размер контейнера
      */

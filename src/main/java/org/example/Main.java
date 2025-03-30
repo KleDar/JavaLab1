@@ -18,5 +18,14 @@ public class Main {
 
         // Выводим размер контейнера
         System.out.println("\nContainer size: " + container.size());
+
+        // Выводим все элементы
+        System.out.println("\nContainer elements:");
+        for (int i = 0; i < container.size(); i++) {
+            System.out.println("Element at index " + i + ": " + container.get(i));
+        }
+
+        System.out.println("Element at index " + 13 + ": " + container.get(13));
+
     }
 }
